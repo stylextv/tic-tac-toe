@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 import de.ttt.background.BackgroundManager;
 import de.ttt.game.GameManager;
 import de.ttt.image.ImageUtil;
-import de.ttt.render.ColorSchemeManager;
 import de.ttt.render.Renderer;
 
 public class Main {
@@ -106,7 +105,6 @@ public class Main {
 			
 			BackgroundManager.update(width, height, mouseX, mouseY, hasMouse);
 			GameManager.update(width, height, mouseX, mouseY, hasMouse);
-			ColorSchemeManager.update();
 		}
 		
 		renderer.paintImmediately(0, 0, renderer.getWidth(), renderer.getHeight());

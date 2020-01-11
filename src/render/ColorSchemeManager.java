@@ -8,15 +8,6 @@ public class ColorSchemeManager {
 	
 	private static ColorScheme scheme=ColorScheme.DARK_BLUE;
 	
-	private static int i=0;
-	
-	public static void update() {
-		i++;
-		if(i>=60*5) {
-			i=0;
-//			scheme=ColorScheme.LIGHT_GREEN;
-		}
-	}
 	public static void setScheme(ColorScheme s) {
 		if(!scheme.equals(s)) {
 			scheme=s;

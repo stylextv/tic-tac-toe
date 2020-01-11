@@ -19,7 +19,7 @@ public class Field {
 			animationTimer+=0.025;
 			if(animationTimer>1) animationTimer=1;
 		} else {
-			animationTimer=animationTimer*0.9-0.05;
+			animationTimer=animationTimer*0.95-0.025;
 			if(animationTimer<0) animationTimer=0;
 			if(animationTimer==0) displayType=null;
 		}
