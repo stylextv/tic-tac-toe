@@ -1,5 +1,6 @@
 package de.ttt.background;
 
+import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
@@ -10,6 +11,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import de.ttt.image.ImageUtil;
 import de.ttt.main.Vars;
 import de.ttt.math.MathUtil;
+import de.ttt.render.ColorSchemeManager;
 import de.ttt.render.RenderUtil;
 
 public class BackgroundManager {
@@ -59,7 +61,7 @@ public class BackgroundManager {
 		}
 	}
 	public static void draw(Graphics2D graphics, int width, int height) {
-		GradientPaint gradient = new GradientPaint(0, 0, Vars.BACKGROUND_COLOR1, width, height, Vars.BACKGROUND_COLOR2);
+		GradientPaint gradient = new GradientPaint(0, 0, ColorSchemeManager.getBackground1(), width, height, ColorSchemeManager.getBackground2());
 		graphics.setPaint(gradient);
 		graphics.fillRect(0, 0, width, height);
 		graphics.setPaint(null);
@@ -76,8 +78,9 @@ public class BackgroundManager {
 			init(width, height);
 		}
 		
+		Color[] particleColors=ColorSchemeManager.getParticleColors();
 		for(Particle p:particles) {
-			graphics.setColor(p.getColor());
+			graphics.setColor(particleColors[p.getColor()]);
 			double size=p.getSize();
 			graphics.fill(new Arc2D.Double(p.getX(), p.getY(), size, size, 0, 360, 0));
 		}

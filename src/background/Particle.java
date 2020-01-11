@@ -1,14 +1,10 @@
 package de.ttt.background;
 
-import java.awt.Color;
-
 import de.ttt.math.MathUtil;
 
 public class Particle {
 	
-	private static Color[] COLORS=new Color[]{new Color(0x352BC7),new Color(0xC2C4CF),new Color(0x42526D)};
-	
-	private Color color;
+	private int color;
 	
 	private double x,y;
 	private double size,speed;
@@ -16,10 +12,10 @@ public class Particle {
 	private double xVelBase;
 	
 	public Particle(double x, double y) {
-		color=COLORS[MathUtil.getRandom().nextInt(COLORS.length)];
+		color=MathUtil.getRandom().nextInt(3);
 		this.x=x;
 		this.y=y;
-		size=MathUtil.getRandom().nextDouble()*7+1;
+		size=MathUtil.getRandom().nextDouble()*8+2;
 		speed=MathUtil.getRandom().nextDouble();
 		xVelBase=MathUtil.getRandom().nextDouble()*0.25-0.125;
 		
@@ -42,7 +38,7 @@ public class Particle {
 		else if(x>=width) x-=width+size;
 	}
 	
-	public Color getColor() {
+	public int getColor() {
 		return color;
 	}
 	
